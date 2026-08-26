@@ -89,7 +89,7 @@ export const facturas = pgTable("facturas", {
   proveedorId: uuid("proveedor_id").references(() => proveedores.id, {
     onDelete: "set null",
   }),
-  urlImagen: text("url_imagen").notNull(),
+  urlImagen: text("url_imagen"),
   estado: estadoFacturaEnum("estado").notNull().default("procesando"),
   fecha: timestamp("fecha", { mode: "date" }),
   createdAt: timestamp("created_at").notNull().defaultNow(),

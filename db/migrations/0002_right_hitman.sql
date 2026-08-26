@@ -1,0 +1,1 @@
+ALTER TABLE "facturas" ALTER COLUMN "url_imagen" DROP NOT NULL;
