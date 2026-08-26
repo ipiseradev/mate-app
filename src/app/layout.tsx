@@ -12,16 +12,37 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const TITULO = "Mate — Cargá facturas de proveedores en segundos";
+const DESCRIPCION =
+  "Mate recuerda qué le comprás a cada proveedor para que la próxima factura se cargue sola. Gratis, sin tarjeta, pensado para comercios de barrio.";
+const URL_SITIO = "https://mate-app-one.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Mate App",
-  description:
-    "Registrá y controlá las facturas de tus proveedores, con carga rápida asistida por tu historial de compras.",
+  metadataBase: new URL(URL_SITIO),
+  title: {
+    default: TITULO,
+    template: "%s — Mate",
+  },
+  description: DESCRIPCION,
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: URL_SITIO,
+    siteName: "Mate",
+    title: TITULO,
+    description: DESCRIPCION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITULO,
+    description: DESCRIPCION,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
